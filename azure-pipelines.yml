@@ -1,27 +1,16 @@
-# # YAML file in the new-feature-branch
-# schedules:
-# - cron: "0 0 * * *"
-#   displayName: Daily midnight build
-#   branches:
-#     include:
-#     - master
 # Python package
 # Create and test a Python package on multiple Python versions.
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
-
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-latest'
-
 schedules:
-- cron: "55 4 * * *"
+- cron: "15 5 * * *"
   displayName: Daily build
   branches:
     include:
     - master
+
+pool:
+  vmImage: 'ubuntu-latest'
 
 strategy:
   matrix:

@@ -1,12 +1,14 @@
 # Utilify
 
+[![Build Status](https://dev.azure.com/tuckermmccoy/GitProjects/_apis/build/status/tmccoy14.Utilify?branchName=master)](https://dev.azure.com/tuckermmccoy/GitProjects/_build/latest?definitionId=1&branchName=master)
+
 ![Image description](https://www.portseattle.org/sites/default/files/2018-03/la-me-political-issues-public-utilities.png)
 
 Utilify is an application that sends weekly updates of the utility bill. This is done through utilizing Python, and Azure DevOps.
 
 What you'll need to run this application:
 
-Create a credentials.py file and add the necessary variables
+Create a credentials.py file and add the necessary variables or bake them into the pipeline
 
 Clone the repository to preferred path
 ```
