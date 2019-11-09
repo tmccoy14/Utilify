@@ -1,0 +1,7 @@
+# YAML file in the new-feature-branch
+schedules:
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - master
