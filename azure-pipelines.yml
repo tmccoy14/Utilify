@@ -15,6 +15,14 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
+
+schedules:
+- cron: "55 4 * * *"
+  displayName: Daily build
+  branches:
+    include:
+    - master
+
 strategy:
   matrix:
     Python37:
@@ -32,6 +40,5 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'pytest'
+    python3 utilify.py
+  displayName: 'Run App'
