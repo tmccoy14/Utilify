@@ -41,6 +41,6 @@ https://azure.microsoft.com/en-us/services/devops/
     > Choose Github 
     > Choose Repo 
     > Choose Existing Azure Pipeline Yaml File 
-    > Choose Branch and Path to azure-pipelines.yaml -
+    > Choose Branch and Path to azure-pipelines.yaml
     > Review and Run pipeline
 ```
