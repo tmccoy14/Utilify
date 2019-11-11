@@ -33,9 +33,9 @@ pip install -r requirements.txt
 ```
 
 Setup free AzureDevops Account
-'''
+```
 https://azure.microsoft.com/en-us/services/devops/
 Create a free account
 Create an organization
 Create a pipeline -> Choose Github -> Choose Repo -> Choose Existing Azure Pipeline Yaml File -> Choose Branch and Path to azure-pipelines.yaml -> Review and Run pipeline
-'''
+```
