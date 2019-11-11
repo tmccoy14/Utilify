@@ -46,7 +46,7 @@ with requests.Session() as s:
 
     sender = sys.argv[3]
     recipient = sys.argv[4]
-    password = sys.argv[5]
+    password = 'Y?TZ"@rz:UuLhBM6'
     subject = "{} Utility Update".format(totalAmountDue[0])
     text = message
 
