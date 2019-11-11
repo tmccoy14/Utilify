@@ -14,8 +14,8 @@ headers = {
 login_data = {
     "smauthreason": "0",
     "target": "https://mydom.dominionenergy.com",
-    "user": os.system("$dominion_user"),
-    "password": os.system("$dominion_password"),
+    "user": "$(dominion_user)",
+    "password": "$(dominion_password)",
 }
 
 with requests.Session() as s:
@@ -28,24 +28,25 @@ with requests.Session() as s:
     tree = html.fromstring(r.content)
     totalAmountDue = tree.xpath('//span[@class="bodyTextGreen"]/text()')
 
-    message = "Dominion Energy:\nAs of{}, the total amount due is {}".format(
-        totalAmountDue[0], totalAmountDue[1]
-    )
+    print(totalAmountDue)
+#     message = "Dominion Energy:\nAs of{}, the total amount due is {}".format(
+#         totalAmountDue[0], totalAmountDue[1]
+#     )
 
-    sender = os.system("$sender")
-    recipient = os.system("recipient")
-    password = os.system("$password")
-    subject = "{} Utility Update".format(totalAmountDue[0])
-    text = message
+#     sender = os.system("$sender")
+#     recipient = os.system("recipient")
+#     password = os.system("$password")
+#     subject = "{} Utility Update".format(totalAmountDue[0])
+#     text = message
 
-    send_email(sender, recipient, password, subject, text)
+#     send_email(sender, recipient, password, subject, text)
 
 
-# This function authenticates with the gmail server
-# And then sends the email with the utility updates
-def send_email(sender, recipient, password, subject, text):
-    smtp_server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-    smtp_server.login(sender, password)
-    body = "Subject: {}\n\n{}".format(subject, text)
-    smtp_server.sendmail(sender, recipient, body)
-    smtp_server.close()
+# # This function authenticates with the gmail server
+# # And then sends the email with the utility updates
+# def send_email(sender, recipient, password, subject, text):
+#     smtp_server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+#     smtp_server.login(sender, password)
+#     body = "Subject: {}\n\n{}".format(subject, text)
+#     smtp_server.sendmail(sender, recipient, body)
+#     smtp_server.close()
