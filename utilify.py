@@ -2,9 +2,18 @@ import requests
 import smtplib
 import sys
 
-# import credentials
 from bs4 import BeautifulSoup
 from lxml import html
+
+# This function authenticates with the gmail server
+# And then sends the email with the utility updates
+def send_email(sender, recipient, password, subject, text):
+    smtp_server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+    smtp_server.login(sender, password)
+    body = "Subject: {}\n\n{}".format(subject, text)
+    smtp_server.sendmail(sender, recipient, body)
+    smtp_server.close()
+
 
 # Scrapes the dominion energy website for the necessary utility information
 headers = {
@@ -41,12 +50,3 @@ with requests.Session() as s:
 
     send_email(sender, recipient, password, subject, text)
 
-
-# This function authenticates with the gmail server
-# And then sends the email with the utility updates
-def send_email(sender, recipient, password, subject, text):
-    smtp_server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-    smtp_server.login(sender, password)
-    body = "Subject: {}\n\n{}".format(subject, text)
-    smtp_server.sendmail(sender, recipient, body)
-    smtp_server.close()
