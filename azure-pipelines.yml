@@ -22,5 +22,5 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    python3 utilify.py $(dominion_user) $(dominion_password)
+    python3 utilify.py $(dominion_user) $(dominion_password) $(sender) $(recipient) $(password)
   displayName: 'Run App'
