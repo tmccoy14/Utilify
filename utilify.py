@@ -14,8 +14,8 @@ headers = {
 login_data = {
     "smauthreason": "0",
     "target": "https://mydom.dominionenergy.com",
-    "user": "$(dominion_user)",
-    "password": "$(dominion_password)",
+    "user": os.environ["dominion_user"],
+    "password": os.environ["dominion_password"],
 }
 
 with requests.Session() as s:
