@@ -32,10 +32,10 @@ Install the following packages
 pip install -r requirements.txt
 ```
 
-Run Dockerfile
-Make sure you have [Docker] (https://docs.docker.com/install/) installed
-```
-docker build -t utilify /file/path/to/utilifyHomeDirectory
-```
-
-# MORE UPDATES TO COME
+Setup free AzureDevops Account
+'''
+https://azure.microsoft.com/en-us/services/devops/
+Create a free account
+Create an organization
+Create a pipeline -> Choose Github -> Choose Repo -> Choose Existing Azure Pipeline Yaml File -> Choose Branch and Path to azure-pipelines.yaml -> Review and Run pipeline
+'''
