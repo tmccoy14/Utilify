@@ -14,8 +14,8 @@ headers = {
 login_data = {
     "smauthreason": "0",
     "target": "https://mydom.dominionenergy.com",
-    "user": $(dominion_user),
-    "password": $(dominion_password),
+    "user": os.system("$dominion_user"),
+    "password": os.system("$dominion_password"),
 }
 
 with requests.Session() as s:
@@ -32,9 +32,9 @@ with requests.Session() as s:
         totalAmountDue[0], totalAmountDue[1]
     )
 
-    sender = $(sender)
-    recipient = $(recipient)
-    password = $(password)
+    sender = os.system("$sender")
+    recipient = os.system("recipient")
+    password = os.system("$password")
     subject = "{} Utility Update".format(totalAmountDue[0])
     text = message
 
