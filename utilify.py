@@ -1,6 +1,6 @@
 import requests
 import smtplib
-import os
+import sys
 
 # import credentials
 from bs4 import BeautifulSoup
@@ -14,8 +14,8 @@ headers = {
 login_data = {
     "smauthreason": "0",
     "target": "https://mydom.dominionenergy.com",
-    "user": os.environ["dominion_user"],
-    "password": os.environ["dominion_password"],
+    "user": sys.argv[1],
+    "password": sys.argv[2],
 }
 
 with requests.Session() as s:
