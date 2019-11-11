@@ -15,6 +15,8 @@ def send_email(sender, recipient, password, subject, text):
     smtp_server.close()
 
 
+print(sys.argv[4])
+
 # Scrapes the dominion energy website for the necessary utility information
 headers = {
     "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
