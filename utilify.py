@@ -8,14 +8,12 @@ from lxml import html
 # This function authenticates with the gmail server
 # And then sends the email with the utility updates
 def send_email(sender, recipient, password, subject, text):
-    smtp_server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+    smtp_server = smtplib.SMTP_SSL("smtp-mail.outlook.com", 587)
     smtp_server.login(sender, password)
     body = "Subject: {}\n\n{}".format(subject, text)
     smtp_server.sendmail(sender, recipient, body)
     smtp_server.close()
 
-
-print(sys.argv[4])
 
 # Scrapes the dominion energy website for the necessary utility information
 headers = {
@@ -39,14 +37,13 @@ with requests.Session() as s:
     tree = html.fromstring(r.content)
     totalAmountDue = tree.xpath('//span[@class="bodyTextGreen"]/text()')
 
-    print(totalAmountDue)
     message = "Dominion Energy:\nAs of{}, the total amount due is {}".format(
         totalAmountDue[0], totalAmountDue[1]
     )
 
     sender = sys.argv[3]
     recipient = sys.argv[4]
-    password = 'Y?TZ"@rz:UuLhBM6'
+    password = sys.argv[5]
     subject = "{} Utility Update".format(totalAmountDue[0])
     text = message
 
