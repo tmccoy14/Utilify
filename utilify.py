@@ -51,4 +51,3 @@ with requests.Session() as s:
     text = message
 
     send_email(sender, recipient, password, subject, text)
-
